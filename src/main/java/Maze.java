@@ -43,6 +43,9 @@ public class Maze {
         }
     }
 
+    /**
+     * 배열 출력
+     */
     public void printMaze() {
         String printStr = ToStringBuilder.reflectionToString(maze, ToStringStyle.SIMPLE_STYLE);
         printStr = printStr.replaceAll("},", "\r\n")
