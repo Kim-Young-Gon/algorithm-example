@@ -1,6 +1,3 @@
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
 public class Grid {
     private int N = 8;
     private int[][] grid = {
@@ -32,15 +29,7 @@ public class Grid {
         }
     }
 
-    /**
-     * 배열 출력
-     */
-    public void printGrid() {
-        String printStr = ToStringBuilder.reflectionToString(grid, ToStringStyle.SIMPLE_STYLE);
-        printStr = printStr.replaceAll("},", "\r\n")
-                .replaceAll("\\{", "").replaceAll("}", "");
-        System.out.println("===============");
-        System.out.println(printStr);
-        System.out.println("===============");
+    public int[][] getGrid() {
+        return this.grid;
     }
 }

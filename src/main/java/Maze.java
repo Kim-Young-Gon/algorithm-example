@@ -1,6 +1,3 @@
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
 public class Maze {
     private int N = 8;
     private int[][] maze = {
@@ -43,15 +40,7 @@ public class Maze {
         }
     }
 
-    /**
-     * 배열 출력
-     */
-    public void printMaze() {
-        String printStr = ToStringBuilder.reflectionToString(maze, ToStringStyle.SIMPLE_STYLE);
-        printStr = printStr.replaceAll("},", "\r\n")
-                .replaceAll("\\{", "").replaceAll("}", "");
-        System.out.println("===============");
-        System.out.println(printStr);
-        System.out.println("===============");
+    public int[][] getMaze() {
+        return maze;
     }
 }
