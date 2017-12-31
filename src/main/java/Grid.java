@@ -15,6 +15,12 @@ public class Grid {
     private final int IMAGE_COLOR = 1;// blue
     private final int ALREADY_COUNTED = 2;// red
 
+    /**
+     * Counting Cells in a Blob
+     * @param x
+     * @param y
+     * @return
+     */
     public int countCells(final int x, final int y) {
         if (x < 0 || y < 0 || x >= N || y >= N)
             return 0;

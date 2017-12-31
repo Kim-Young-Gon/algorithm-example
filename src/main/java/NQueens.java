@@ -15,6 +15,11 @@ public class NQueens {
         grid = new int[this.N][this.N];
     }
 
+    /**
+     * n queens problem
+     * @param level
+     * @return
+     */
     public boolean queens(final int level) {
         if (!promising(level)) {
             return false;
