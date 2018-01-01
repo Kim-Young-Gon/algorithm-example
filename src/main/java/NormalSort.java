@@ -90,7 +90,7 @@ public class NormalSort {
     }
 
     /**
-     * Merge
+     * Merge Sort total merge
      * @param list
      * @param p
      * @param q
