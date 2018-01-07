@@ -97,7 +97,7 @@ public class NormalSort {
      * @param r
      * @return
      */
-    public void merge(final char[] list, final int p, final int q, final int r) {
+    private void merge(final char[] list, final int p, final int q, final int r) {
         int i = p, j = q + 1, k = p;
         final char[] result = new char[list.length];
         while (i <= q && j <= r) {
@@ -116,5 +116,43 @@ public class NormalSort {
         for (i = p; i <= r; i++) {
             list[i] = result[i];
         }
+    }
+
+    /**
+     * Quick Sort
+     * @param list
+     * @param p
+     * @param r
+     */
+    public void quickSort(final Integer[] list, final int p, final int r) {
+        if (p < r) {
+            final int q = partition(list, p, r);
+            quickSort(list, p, q - 1);
+            quickSort(list, q + 1, r);
+        }
+    }
+
+    /**
+     * Quick Sort Partition
+     * @param list
+     * @param p
+     * @param r
+     * @return
+     */
+    private int partition(final Integer[] list, final int p, final int r) {
+        final int x = list[r];
+        int i = p - 1;
+        int tmp;
+        for (int j = p; j <= r - 1; j++) {
+            if (list[j] <= x) {
+                i = i + 1;
+                tmp = list[i];
+                list[i] = list[j];
+                list[j] = tmp;
+            }
+        }
+        list[r] = list[i + 1];
+        list[i + 1] = x;
+        return i + 1;
     }
 }
