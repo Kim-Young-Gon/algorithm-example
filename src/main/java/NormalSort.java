@@ -155,4 +155,54 @@ public class NormalSort {
         list[i + 1] = x;
         return i + 1;
     }
+
+    /**
+     * Heap Sort
+     * @param list
+     */
+    public void heapSort(final Integer[] list) {
+        final int n = list.length;
+        // Heap 만들기
+        for (int i = n / 2 - 1; 0 <= i; i--) {
+            heapify(list, n, i);
+        }
+        // Heap 을 사용한 정렬처리
+        int tmp;
+        for (int i = n - 1; 0 <= i; i--) {
+            // 최대값을 배열의 제일뒤로 보낸다.
+            tmp = list[0];
+            list[0] = list[i];
+            list[i] = tmp;
+            heapify(list, i, 0);
+        }
+    }
+
+    /**
+     * Heap으로 만들기
+     * @param list
+     * @param n
+     * @param i
+     */
+    private void heapify(final Integer[] list, final int n, final int i) {
+        int maxIdx = i;
+        final int l = 2 * i + 1;
+        final int r = 2 * i + 2;
+
+        // 왼쪽 노드 확인
+        if (l < n && list[l] > list[maxIdx]) {
+            maxIdx = l;
+        }
+        // 오른쪽 노드 확인
+        if (r < n && list[r] > list[maxIdx]) {
+            maxIdx = r;
+        }
+        // 최대값이 원래의 root와 다르면 변경
+        if (maxIdx != i) {
+            final int tmp = list[i];
+            list[i] = list[maxIdx];
+            list[maxIdx] = tmp;
+            // 하위 노드 Heap으로 만들기
+            heapify(list, n, maxIdx);
+        }
+    }
 }

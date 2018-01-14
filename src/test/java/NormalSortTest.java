@@ -52,4 +52,10 @@ public class NormalSortTest {
         sort.quickSort(list4, 0, list4.length - 1);
         System.out.println(String.format("list4 : %s", ToStringBuilder.reflectionToString(list4, ToStringStyle.SIMPLE_STYLE)));
     }
+
+    @Test
+    public void heapSortTest() {
+        sort.heapSort(list4);
+        System.out.println(String.format("list4 : %s", ToStringBuilder.reflectionToString(list4, ToStringStyle.SIMPLE_STYLE)));
+    }
 }
